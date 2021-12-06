@@ -11,14 +11,14 @@ const args = process.argv.slice(2);
 
 let skusForCountry = (countrySkuCode) => {
   return {
-    [`MKGR3${countrySkuCode}/A`]: `14" M1 Pro 8 Core CPU 14 Core GPU 512GB Silver`,
-    [`MKGP3${countrySkuCode}/A`]: '14" M1 Pro 8 Core CPU 14 Core GPU 512GB Space Grey',
-    [`MKGT3${countrySkuCode}/A`]: '14" M1 Pro 10 Core CPU 16 Core GPU 1TB Silver',
-    [`MKGQ3${countrySkuCode}/A`]: '14" M1 Pro 10 Core CPU 16 Core GPU 1TB Space Grey',
-    [`MMQX3${countrySkuCode}/A`]: '14" M1 Max 10 Core CPU 32 Core GPU 2TB Silver, Ultimate',
-    [`MKH53${countrySkuCode}/A`]: '14" M1 Max 10 Core CPU 32 Core GPU 2TB Space Grey, Ultimate',
+    //[`MKGR3${countrySkuCode}/A`]: `14" M1 Pro 8 Core CPU 14 Core GPU 512GB Silver`,
+    //[`MKGP3${countrySkuCode}/A`]: '14" M1 Pro 8 Core CPU 14 Core GPU 512GB Space Grey',
+    //[`MKGT3${countrySkuCode}/A`]: '14" M1 Pro 10 Core CPU 16 Core GPU 1TB Silver',
+    //[`MKGQ3${countrySkuCode}/A`]: '14" M1 Pro 10 Core CPU 16 Core GPU 1TB Space Grey',
+    //[`MMQX3${countrySkuCode}/A`]: '14" M1 Max 10 Core CPU 32 Core GPU 2TB Silver, Ultimate',
+    //[`MKH53${countrySkuCode}/A`]: '14" M1 Max 10 Core CPU 32 Core GPU 2TB Space Grey, Ultimate',
     [`MK1H3${countrySkuCode}/A`]: '16" M1 Max 10 Core CPU 32 Core GPU 1TB Silver',
-    [`MK1A3${countrySkuCode}/A`]: '16" M1 Max 10 Core CPU 32 Core GPU 1TB Space Grey',
+    [`MK1A3${countrySkuCode}/A`]: '16" M1 Max 10 Core CPU 32 Core GPU 1TB Space Grey, Ultimate',
     [`MMQW3${countrySkuCode}/A`]: '16" M1 Max 10 Core CPU 32 Core GPU 4TB Silver, Ultimate',
     [`MK233${countrySkuCode}/A`]: '16" M1 Max 10 Core CPU 32 Core GPU 4TB Space Grey, Ultimate',
     [`MK1F3${countrySkuCode}/A`]: '16" M1 Pro 10 Core CPU 16 Core GPU 1TB Silver',
@@ -68,6 +68,8 @@ let options = {
   url: `https://www.apple.com${storePath}/shop/fulfillment-messages?` + query,
 };
 
+var schedule = require('node-schedule');
+var j = schedule.scheduleJob('1 * * * *', function() {
 request(options, function (error, response) {
   if (error) throw new Error(error);
 
@@ -144,4 +146,5 @@ request(options, function (error, response) {
 
   // Log time at end
   console.log(`\nGenerated: ${new Date().toLocaleString()}`);
+});
 });

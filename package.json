@@ -11,6 +11,7 @@
   "dependencies": {
     "array.prototype.flatmap": "^1.2.5",
     "node-notifier": "^10.0.0",
+    "node-schedule": "^2.1.0",
     "request": "^2.88.2",
     "string.prototype.replaceall": "^1.0.6"
   }
